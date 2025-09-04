@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGlobalContext } from '../../public/context/GlobalProvider';
+import { useGlobalContext } from '../context/GlobalProvider';
 
 const Projects = () => {
   const { state } = useGlobalContext();
@@ -39,13 +39,13 @@ const Projects = () => {
                               controls
                               width="100%"
                               style={{
-                                ...(achievement.videoPath.startsWith('p_1') 
+                                ...(typeof achievement.videoPath === 'string' && achievement.videoPath.includes('p_1') 
                                   ? { maxHeight: "600px", objectFit: "cover" } 
                                   : { maxHeight: "500px", maxWidth: "280px", margin: "0 auto", display: "block" })
                               }}
                               className="achievement-video"
                             >
-                              <source src={new URL(`../assets/${achievement.videoPath}`, import.meta.url).href} type="video/mp4" />
+                              <source src={achievement.videoPath} type="video/mp4" />
                             </video>
                           ) : (
                             <div className="media-placeholder">

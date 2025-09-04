@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGlobalContext } from '../../public/context/GlobalProvider';
+import { useGlobalContext } from '../context/GlobalProvider';
 
 const Contact = () => {
   const { state } = useGlobalContext();
